@@ -19,26 +19,26 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* This width controls the alignment for both elements */
-    width: 500px; 
+    /* Adjusted width to create a flush vertical line on left and right */
+    width: 410px; 
 }
 
 h1 {
     font-family: 'MSCHFSansMono', monospace;
     color: #fff;
     font-size: 3rem;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
     width: 100%;
-    /* Forces the text to spread across the full width of the 500px container */
-    text-align: justify;
-    text-align-last: justify;
+    text-align: center;
+    letter-spacing: -1px;
+    white-space: nowrap;
 }
 
 .clock-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    width: 100%; /* Matches the 500px of main-wrapper */
+    gap: 6px;
+    width: 100%;
 }
 
 .clock-row {
@@ -50,28 +50,28 @@ h1 {
 .label {
     color: #947F47;
     font-family: 'MSCHFSansMono', monospace;
-    font-size: 2rem;
+    font-size: 1.5rem; /* 2/3 ratio */
     line-height: 1;
 }
 
 .time {
     color: #4f4f4f;
     font-family: 'MSCHFSansMono', monospace;
-    font-size: 2rem;
+    font-size: 1.5rem; /* 2/3 ratio */
     line-height: 1;
 }
 
 /* Mobile Adjustments */
 @media (max-width: 600px) {
     .main-wrapper {
-        width: 90%; /* Scale based on screen width */
+        width: 320px;
     }
     
     h1 {
-        font-size: 1.8rem;
+        font-size: 2.3rem;
     }
     
     .label, .time {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
