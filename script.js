@@ -1,49 +1,71 @@
-const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789:/";
-
-function formatTime(timeZone) {
-    return new Date().toLocaleTimeString('en-US', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-        timeZone: timeZone
-    });
+@font-face {
+    font-family: 'MSCHFSansMono';
+    src: url('MSCHFSansMono.DOBS5JtI.otf') format('opentype');
 }
 
-function scramble(element, targetText) {
-    let iteration = 0;
-    const interval = setInterval(() => {
-        element.innerText = targetText
-            .split("")
-            .map((char, index) => {
-                if (index < iteration) return targetText[index];
-                return chars[Math.floor(Math.random() * chars.length)];
-            })
-            .join("");
-
-        if (iteration >= targetText.length) clearInterval(interval);
-        iteration += 1 / 3;
-    }, 30);
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    overflow: hidden;
 }
 
-// Detection
-const visitorTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
-const visitorCity = visitorTZ.split('/').pop().replace('_', ' ').substring(0, 3).toUpperCase();
-const nycTZ = "America/New_York";
+.main-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-const visLabelEl = document.getElementById('visitor-label');
-const visTimeEl = document.getElementById('visitor-time');
-const nycLabelEl = document.getElementById('nyc-label');
-const nycTimeEl = document.getElementById('nyc-time');
+h1 {
+    font-family: 'MSCHFSansMono', monospace;
+    color: #fff;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;
+}
 
-// Initial Scramble
-scramble(visLabelEl, visitorCity);
-scramble(visTimeEl, formatTime(visitorTZ));
-scramble(nycLabelEl, "NYC");
-scramble(nycTimeEl, formatTime(nycTZ));
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 240px;
+}
 
-// Update Loop
-setInterval(() => {
-    visTimeEl.innerText = formatTime(visitorTZ);
-    nycTimeEl.innerText = formatTime(nycTZ);
-}, 1000);
+.clock-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.label {
+    color: #947F47;
+    font-family: 'MSCHFSansMono', monospace;
+    font-size: 14px;
+}
+
+.time {
+    color: #4f4f4f;
+    font-family: 'MSCHFSansMono', monospace;
+    font-size: 14px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .clock-container {
+        width: 200px;
+    }
+    
+    .label, .time {
+        font-size: 12px;
+    }
+}
