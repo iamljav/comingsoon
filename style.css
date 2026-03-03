@@ -19,53 +19,59 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    /* This width controls the alignment for both elements */
+    width: 500px; 
 }
 
 h1 {
     font-family: 'MSCHFSansMono', monospace;
     color: #fff;
     font-size: 3rem;
-    letter-spacing: 2px;
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
+    width: 100%;
+    /* Forces the text to spread across the full width of the 500px container */
+    text-align: justify;
+    text-align-last: justify;
 }
 
 .clock-container {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    width: 400px; /* Increased to fit larger font */
+    gap: 10px;
+    width: 100%; /* Matches the 500px of main-wrapper */
 }
 
 .clock-row {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 .label {
     color: #947F47;
     font-family: 'MSCHFSansMono', monospace;
-    font-size: 2rem; /* 2/3rds of h1 */
+    font-size: 2rem;
+    line-height: 1;
 }
 
 .time {
     color: #4f4f4f;
     font-family: 'MSCHFSansMono', monospace;
-    font-size: 2rem; /* 2/3rds of h1 */
+    font-size: 2rem;
+    line-height: 1;
 }
 
 /* Mobile Adjustments */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.8rem;
-        letter-spacing: 1px;
+    .main-wrapper {
+        width: 90%; /* Scale based on screen width */
     }
     
-    .clock-container {
-        width: 280px;
+    h1 {
+        font-size: 1.8rem;
     }
     
     .label, .time {
-        font-size: 1.2rem; /* Adjusted for mobile scale */
+        font-size: 1.2rem;
     }
 }
