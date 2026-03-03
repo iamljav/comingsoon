@@ -67,22 +67,25 @@ h1 {
     letter-spacing: -0.5px; 
 }
 
-/* Social Icons Styling */
+/* Updated Social Icons Styling */
 .social-links {
     display: flex;
-    gap: 15px;
-    margin-top: 25px; /* Space below the clock */
+    /* Increased gap for a more spacious horizontal distribution */
+    gap: 20px; 
+    /* Increased margin to push them further from the clock */
+    margin-top: 40px; 
 }
 
 .social-links a {
-    color: #4f4f4f; /* Matches time color */
-    font-size: 1.2rem;
+    /* Matches the exact grey of the time */
+    color: #4f4f4f; 
+    font-size: 1.1rem;
     text-decoration: none;
     transition: color 0.2s ease;
 }
 
 .social-links a:hover {
-    color: #fff; /* Highlights on hover */
+    color: #fff; 
 }
 
 @media (max-width: 600px) {
@@ -90,5 +93,5 @@ h1 {
     h1 { font-size: 1.75rem; }
     .clock-container { width: 150px; }
     .label, .time { font-size: 1.15rem; }
-    .social-links { margin-top: 20px; gap: 12px; }
+    .social-links { margin-top: 30px; gap: 15px; }
 }
