@@ -1,25 +1,55 @@
-.clock-container {
-    margin-top: 2rem;
+@font-face {
+    font-family: 'MSCHFSansMono';
+    src: url('MSCHFSansMono.DOBS5JtI.otf') format('opentype');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Vertical center */
+    align-items: center;     /* Horizontal center */
+    background-color: #000;
+    overflow: hidden;        /* Prevents scrollbars */
+}
+
+.main-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    min-width: 200px;
+    align-items: center;     /* Centers children (h1 and clocks) */
+    text-align: center;
+}
+
+h1 {
+    font-family: 'MSCHFSansMono', monospace;
+    color: #fff;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin: 0 0 20px 0;      /* Space between text and clock */
+}
+
+.clock-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 240px;            /* Fixed width helps keep labels aligned */
 }
 
 .clock-row {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
 }
 
 .label {
-    color: #947F47; /* Gold/Bronze from your React code */
+    color: #947F47;
     font-family: 'MSCHFSansMono', monospace;
     font-size: 14px;
 }
 
 .time {
-    color: #4f4f4f; /* Grey from your React code */
+    color: #4f4f4f;
     font-family: 'MSCHFSansMono', monospace;
     font-size: 14px;
 }
