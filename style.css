@@ -39,8 +39,8 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    /* Reduced width to bring time and label together */
-    width: 240px; 
+    /* Significant reduction to pull the time and label together */
+    width: 180px; 
 }
 
 .clock-row {
@@ -61,7 +61,6 @@ h1 {
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
     line-height: 1;
-    /* Subtle tracking to match the label weight */
     letter-spacing: -0.5px; 
 }
 
@@ -75,7 +74,8 @@ h1 {
     }
     
     .clock-container {
-        width: 180px;
+        /* Even tighter for small screens */
+        width: 150px;
     }
     
     .label, .time {
