@@ -10,7 +10,7 @@ function formatTime(timeZone) {
     });
 }
 
-function scramble(element, targetText, duration = 1000) {
+function scramble(element, targetText) {
     let iteration = 0;
     const interval = setInterval(() => {
         element.innerText = targetText
@@ -26,23 +26,24 @@ function scramble(element, targetText, duration = 1000) {
     }, 30);
 }
 
-// Initialize Clocks
-const visitorTZ = Intl.DateTimeFormat().resolvedOptions().timeZone;
+// Detection
+const visitorTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
 const visitorCity = visitorTZ.split('/').pop().replace('_', ' ').substring(0, 3).toUpperCase();
+const nycTZ = "America/New_York";
 
-const nycTimeEl = document.getElementById('nyc-time');
-const visTimeEl = document.getElementById('visitor-time');
 const visLabelEl = document.getElementById('visitor-label');
+const visTimeEl = document.getElementById('visitor-time');
+const nycLabelEl = document.getElementById('nyc-label');
+const nycTimeEl = document.getElementById('nyc-time');
 
-// Set labels
-visLabelEl.innerText = visitorCity;
-
-// Start Scramble on Load
+// Initial Scramble
 scramble(visLabelEl, visitorCity);
 scramble(visTimeEl, formatTime(visitorTZ));
+scramble(nycLabelEl, "NYC");
+scramble(nycTimeEl, formatTime(nycTZ));
 
 // Update Loop
 setInterval(() => {
-    nycTimeEl.innerText = formatTime('America/New_York');
     visTimeEl.innerText = formatTime(visitorTZ);
+    nycTimeEl.innerText = formatTime(nycTZ);
 }, 1000);
