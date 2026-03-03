@@ -1,25 +1,25 @@
-@font-face {
-    font-family: 'MSCHFSansMono';
-    src: url('MSCHFSansMono.DOBS5JtI.otf') format('opentype');
-}
-
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
+.clock-container {
+    margin-top: 2rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000; /* Black background */
+    flex-direction: column;
+    gap: 10px;
+    min-width: 200px;
 }
 
-.container {
-    text-align: center;
+.clock-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-h1 {
+.label {
+    color: #947F47; /* Gold/Bronze from your React code */
     font-family: 'MSCHFSansMono', monospace;
-    color: #fff; /* White text */
-    font-size: 3rem;
-    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.time {
+    color: #4f4f4f; /* Grey from your React code */
+    font-family: 'MSCHFSansMono', monospace;
+    font-size: 14px;
 }
