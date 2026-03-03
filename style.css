@@ -1,6 +1,9 @@
 @font-face {
     font-family: 'MSCHFSansMono';
+    /* Ensure the filename below matches your uploaded file exactly (Case Sensitive) */
     src: url('MSCHFSansMono.DOBS5JtI.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body, html {
@@ -33,8 +36,10 @@ h1 {
     letter-spacing: -0.5px;
     white-space: nowrap;
     line-height: 1;
-    /* This removes the browser's default bolding */
-    font-weight: normal; 
+    /* Forces the browser to stop trying to "help" with boldness */
+    font-weight: 400 !important; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .clock-container {
@@ -55,7 +60,7 @@ h1 {
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
     line-height: 1;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 .time {
@@ -64,14 +69,5 @@ h1 {
     font-size: 1.5rem; 
     line-height: 1;
     letter-spacing: -0.5px; 
-    font-weight: normal;
-}
-
-@media (max-width: 600px) {
-    body {
-        padding-left: 20px;
-    }
-    h1 { font-size: 1.75rem; }
-    .clock-container { width: 150px; }
-    .label, .time { font-size: 1.15rem; }
+    font-weight: 400;
 }
