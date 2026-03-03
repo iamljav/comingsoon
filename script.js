@@ -26,8 +26,21 @@ function scramble(element, targetText) {
     }, 30);
 }
 
+// Refined Detection Logic
 const visitorTZ = Intl.DateTimeFormat().resolvedOptions().timeZone || "UTC";
-const visitorCity = visitorTZ.split('/').pop().replace('_', ' ').substring(0, 3).toUpperCase();
+const cityPart = visitorTZ.split('/').pop().replace(/_/g, ' ');
+
+// Logic to create a better 3-letter code
+let visitorCity = "";
+const words = cityPart.split(' ');
+if (words.length > 1) {
+    // If "Los Angeles", take "L" and "A" -> LA
+    visitorCity = words.map(w => w[0]).join('').substring(0, 3).toUpperCase();
+} else {
+    // If "London", take "LON"
+    visitorCity = cityPart.substring(0, 3).toUpperCase();
+}
+
 const nycTZ = "America/New_York";
 
 const visLabelEl = document.getElementById('visitor-label');
@@ -35,11 +48,13 @@ const visTimeEl = document.getElementById('visitor-time');
 const nycLabelEl = document.getElementById('nyc-label');
 const nycTimeEl = document.getElementById('nyc-time');
 
+// Initial Scramble
 scramble(visLabelEl, visitorCity);
 scramble(visTimeEl, formatTime(visitorTZ));
 scramble(nycLabelEl, "NYC");
 scramble(nycTimeEl, formatTime(nycTZ));
 
+// Update Loop
 setInterval(() => {
     visTimeEl.innerText = formatTime(visitorTZ);
     nycTimeEl.innerText = formatTime(nycTZ);
