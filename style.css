@@ -33,13 +33,14 @@ h1 {
     letter-spacing: -0.5px;
     white-space: nowrap;
     line-height: 1;
+    /* This removes the browser's default bolding */
+    font-weight: normal; 
 }
 
 .clock-container {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    /* Significant reduction to pull the time and label together */
     width: 180px; 
 }
 
@@ -54,6 +55,7 @@ h1 {
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
     line-height: 1;
+    font-weight: normal;
 }
 
 .time {
@@ -62,23 +64,14 @@ h1 {
     font-size: 1.5rem; 
     line-height: 1;
     letter-spacing: -0.5px; 
+    font-weight: normal;
 }
 
 @media (max-width: 600px) {
     body {
         padding-left: 20px;
     }
-    
-    h1 {
-        font-size: 1.75rem;
-    }
-    
-    .clock-container {
-        /* Even tighter for small screens */
-        width: 150px;
-    }
-    
-    .label, .time {
-        font-size: 1.15rem;
-    }
+    h1 { font-size: 1.75rem; }
+    .clock-container { width: 150px; }
+    .label, .time { font-size: 1.15rem; }
 }
