@@ -9,7 +9,8 @@ body, html {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    /* This centers the container on the screen, but its contents align left */
+    justify-content: center; 
     align-items: center;
     background-color: #000;
     overflow: hidden;
@@ -18,18 +19,19 @@ body, html {
 .main-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 408px; 
+    /* Aligns H1 and Clock Container to the left */
+    align-items: flex-start; 
+    width: auto;
 }
 
 h1 {
     font-family: 'MSCHFSansMono', monospace;
     color: #fff;
-    font-size: 3rem;
-    margin: 0 0 15px 0;
-    width: 100%;
-    text-align: center;
-    letter-spacing: -0.4px; 
+    /* Reduced by 25% (3rem -> 2.25rem) */
+    font-size: 2.25rem; 
+    margin: 0 0 10px 0;
+    text-align: left;
+    letter-spacing: -0.5px;
     white-space: nowrap;
     line-height: 1;
 }
@@ -37,8 +39,9 @@ h1 {
 .clock-container {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    width: 100%;
+    gap: 4px;
+    /* Adjusted width to keep the clock rows compact */
+    width: 310px; 
 }
 
 .clock-row {
@@ -50,27 +53,30 @@ h1 {
 .label {
     color: #947F47;
     font-family: 'MSCHFSansMono', monospace;
-    font-size: 2rem; 
+    /* Reduced by 25% (2rem -> 1.5rem) */
+    font-size: 1.5rem; 
     line-height: 1;
 }
 
 .time {
     color: #4f4f4f;
     font-family: 'MSCHFSansMono', monospace;
-    font-size: 2rem;
+    /* Reduced by 25% (2rem -> 1.5rem) */
+    font-size: 1.5rem; 
     line-height: 1;
 }
 
+/* Mobile Adjustments */
 @media (max-width: 600px) {
-    .main-wrapper {
-        width: 310px;
+    h1 {
+        font-size: 1.75rem;
     }
     
-    h1 {
-        font-size: 2.2rem;
+    .clock-container {
+        width: 240px;
     }
     
     .label, .time {
-        font-size: 1.4rem;
+        font-size: 1.15rem;
     }
 }
