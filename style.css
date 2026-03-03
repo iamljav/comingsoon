@@ -28,7 +28,7 @@ h1 {
     font-family: 'MSCHFSansMono', monospace;
     color: #fff;
     font-size: 2.25rem; 
-    margin: 0 0 8px 0; /* Reduced margin below heading */
+    margin: 0 0 12px 0;
     text-align: left;
     letter-spacing: -0.5px;
     white-space: nowrap;
@@ -38,8 +38,9 @@ h1 {
 .clock-container {
     display: flex;
     flex-direction: column;
-    gap: 2px; /* Tightened space between NYC and Visitor row */
-    width: 260px; /* Reduced width to pull time closer to label */
+    gap: 4px;
+    /* Reduced width to bring time and label together */
+    width: 240px; 
 }
 
 .clock-row {
@@ -52,19 +53,21 @@ h1 {
     color: #947F47;
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .time {
     color: #4f4f4f;
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
-    line-height: 1.1;
+    line-height: 1;
+    /* Subtle tracking to match the label weight */
+    letter-spacing: -0.5px; 
 }
 
 @media (max-width: 600px) {
     body {
-        padding-left: 30px;
+        padding-left: 20px;
     }
     
     h1 {
@@ -72,7 +75,7 @@ h1 {
     }
     
     .clock-container {
-        width: 200px;
+        width: 180px;
     }
     
     .label, .time {
