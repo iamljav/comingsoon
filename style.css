@@ -9,11 +9,8 @@ body, html {
     height: 100%;
     width: 100%;
     display: flex;
-    /* Vertically center the wrapper */
     align-items: center; 
-    /* Move wrapper to the left side of the page */
     justify-content: flex-start; 
-    /* Margin from the left browser limit */
     padding-left: 10%; 
     background-color: #000;
     overflow: hidden;
@@ -31,7 +28,7 @@ h1 {
     font-family: 'MSCHFSansMono', monospace;
     color: #fff;
     font-size: 2.25rem; 
-    margin: 0 0 10px 0;
+    margin: 0 0 8px 0; /* Reduced margin below heading */
     text-align: left;
     letter-spacing: -0.5px;
     white-space: nowrap;
@@ -41,8 +38,8 @@ h1 {
 .clock-container {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    width: 310px; 
+    gap: 2px; /* Tightened space between NYC and Visitor row */
+    width: 260px; /* Reduced width to pull time closer to label */
 }
 
 .clock-row {
@@ -55,19 +52,19 @@ h1 {
     color: #947F47;
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
-    line-height: 1;
+    line-height: 1.1;
 }
 
 .time {
     color: #4f4f4f;
     font-family: 'MSCHFSansMono', monospace;
     font-size: 1.5rem; 
-    line-height: 1;
+    line-height: 1.1;
 }
 
 @media (max-width: 600px) {
     body {
-        padding-left: 20px; /* Smaller fixed margin for mobile */
+        padding-left: 30px;
     }
     
     h1 {
@@ -75,7 +72,7 @@ h1 {
     }
     
     .clock-container {
-        width: 240px;
+        width: 200px;
     }
     
     .label, .time {
