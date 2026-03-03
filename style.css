@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'MSCHFSansMono';
+    src: url('MSCHFSansMono.DOBS5JtI.otf') format('opentype');
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Black background */
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'MSCHFSansMono', monospace;
+    color: #fff; /* White text */
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
